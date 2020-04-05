@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>dragonfly.building module &#8212; dragonfly-core  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dragonfly.context module" href="dragonfly.context.html" />
+    <link rel="prev" title="dragonfly.cli.validate module" href="dragonfly.cli.validate.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          dragonfly-core</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="dragonfly.html">dragonfly package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dragonfly.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.cli.html">dragonfly.cli package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dragonfly.cli.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="dragonfly.cli.edit.html">dragonfly.cli.edit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="dragonfly.cli.validate.html">dragonfly.cli.validate module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="dragonfly.cli.html#module-dragonfly.cli">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="dragonfly.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">dragonfly.building module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.context.html">dragonfly.context module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.extensionutil.html">dragonfly.extensionutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.model.html">dragonfly.model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.projection.html">dragonfly.projection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.properties.html">dragonfly.properties module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.room2d.html">dragonfly.room2d module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.shadingparameter.html">dragonfly.shadingparameter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.story.html">dragonfly.story module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.subdivide.html">dragonfly.subdivide module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.windowparameter.html">dragonfly.windowparameter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dragonfly.html#module-dragonfly">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="dragonfly.html">dragonfly package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dragonfly.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dragonfly.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">dragonfly.building module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.context.html">dragonfly.context module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.extensionutil.html">dragonfly.extensionutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.model.html">dragonfly.model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.projection.html">dragonfly.projection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.properties.html">dragonfly.properties module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.room2d.html">dragonfly.room2d module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.shadingparameter.html">dragonfly.shadingparameter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.story.html">dragonfly.story module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.subdivide.html">dragonfly.subdivide module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.windowparameter.html">dragonfly.windowparameter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dragonfly.html#module-dragonfly">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="dragonfly.cli.validate.html" title="Previous Chapter: dragonfly.cli.validate module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; dragonfly.cli...</span>
+    </a>
+  </li>
+  <li>
+    <a href="dragonfly.context.html" title="Next Chapter: dragonfly.context module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">dragonfly.con... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/dragonfly.building.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="dragonfly.html">dragonfly package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dragonfly.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dragonfly.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">dragonfly.building module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.context.html">dragonfly.context module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.extensionutil.html">dragonfly.extensionutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.model.html">dragonfly.model module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.projection.html">dragonfly.projection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.properties.html">dragonfly.properties module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.room2d.html">dragonfly.room2d module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.shadingparameter.html">dragonfly.shadingparameter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.story.html">dragonfly.story module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.subdivide.html">dragonfly.subdivide module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dragonfly.windowparameter.html">dragonfly.windowparameter module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dragonfly.html#module-dragonfly">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <div class="section" id="module-dragonfly.building">
+<span id="dragonfly-building-module"></span><h1>dragonfly.building module<a class="headerlink" href="#module-dragonfly.building" title="Permalink to this headline">¶</a></h1>
+<p>Dragonfly Building.</p>
+<dl class="class">
+<dt id="dragonfly.building.Building">
+<em class="property">class </em><code class="descclassname">dragonfly.building.</code><code class="descname">Building</code><span class="sig-paren">(</span><em>identifier</em>, <em>unique_stories</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dragonfly._base._BaseGeometry</span></code></p>
+<p>A complete Building defined by Stories.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>identifier</strong> – Text string for a unique Building ID. Must be &lt; 100 characters
+and not contain any spaces or special characters.</li>
+<li><strong>unique_stories</strong> – An array of unique Dragonfly Story objects that
+together form the entire building. Stories should be ordered
+from lowest floor to highest floor and they will be automatically
+sorted besed on floor height when they are added to a Building.
+Note that, if a given Story is repeated several times over the
+height of the Building, the unique Story included in this list
+should be the first (lowest) Story of the repeated floors.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Properties:</dt>
+<dd><ul class="first last simple">
+<li>identifier</li>
+<li>display_name</li>
+<li>unique_stories</li>
+<li>unique_room_2ds</li>
+<li>height</li>
+<li>height_from_first_floor</li>
+<li>story_count</li>
+<li>volume</li>
+<li>floor_area</li>
+<li>exterior_wall_area</li>
+<li>exterior_aperture_area</li>
+<li>min</li>
+<li>max</li>
+<li>user_data</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="dragonfly.building.Building.ToString">
+<code class="descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dragonfly.building.Building.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.add_prefix">
+<code class="descname">add_prefix</code><span class="sig-paren">(</span><em>prefix</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.add_prefix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.add_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the object identifier and all child objects by inserting a prefix.</p>
+<p>This is particularly useful in workflows where you duplicate and edit
+a starting object and then want to combine it with the original object
+into one Model (like making a model of repeating buildings) since all objects
+within a Model must have unique identifiers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prefix</strong> – Text that will be inserted at the start of this object’s
+(and child objects’) identifier and display_name. It is recommended
+that this prefix be short to avoid maxing out the 100 allowable
+characters for dragonfly identifiers.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.all_room_2ds">
+<code class="descname">all_room_2ds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.all_room_2ds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.all_room_2ds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all Room2D objects that form the Building.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.all_stories">
+<code class="descname">all_stories</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.all_stories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.all_stories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of all Story objects that form the Building.</p>
+<p>The Story objects returned here each have a multiplier of 1 and repeated
+stories are represented will their own Story object.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dragonfly.building.Building.buildings_to_honeybee">
+<em class="property">static </em><code class="descname">buildings_to_honeybee</code><span class="sig-paren">(</span><em>buildings</em>, <em>use_multiplier</em>, <em>tolerance=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.buildings_to_honeybee"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.buildings_to_honeybee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an array of Building objects into a single honeybee Model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>buildings</strong> – An array of Building objects to be converted into a
+honeybee Model.</li>
+<li><strong>use_multiplier</strong> – If True, the multipliers on this Building’s Stories will be
+passed along to the generated Honeybee Room objects, indicating the
+simulation will be run once for each unique room and then results
+will be multiplied. If False, full geometry objects will be written
+for each and every floor in the building that are represented through
+multipliers and all resulting multipliers will be 1.</li>
+<li><strong>tolerance</strong> – The minimum distance in z values of floor_height and
+floor_to_ceiling_height at which adjacent Faces will be split.
+Default: 0.01, suitable for objects in meters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="dragonfly.building.Building.buildings_to_honeybee_self_shade">
+<em class="property">static </em><code class="descname">buildings_to_honeybee_self_shade</code><span class="sig-paren">(</span><em>buildings</em>, <em>context_shades=None</em>, <em>shade_distance=None</em>, <em>use_multiplier=True</em>, <em>tolerance=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.buildings_to_honeybee_self_shade"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.buildings_to_honeybee_self_shade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an array of Buildings into several honeybee Models with self-shading.</p>
+<p>Each input Building will be exported into its own Model. For each Model,
+the other input Buildings will appear as context shade geometry. Thus,
+each Model is its own simulate-able unit accounting for the total
+self-shading of the input Buildings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>buildings</strong> – An array of Building objects to be converted into honeybee
+Models that account for their own shading of one another.</li>
+<li><strong>context_shades</strong> – An optional array of ContextShade objects that will be
+added to the honeybee Models if their bounding box overlaps with a
+given building within the shade_distance.</li>
+<li><strong>shade_distance</strong> – An optional number to note the distance beyond which other
+objects’ shade should not be exported into a given Model. This is
+helpful for reducing the simulation run time of each Model when other
+connected buildings are too far away to have a meaningful impact on
+the results. If None, all other buildings will be included as context
+shade in each and every Model. Set to 0 to exclude all neighboring
+buildings from the resulting models. Default: None.</li>
+<li><strong>use_multiplier</strong> – If True, the multipliers on this Building’s Stories will be
+passed along to the generated Honeybee Room objects, indicating the
+simulation will be run once for each unique room and then results
+will be multiplied. If False, full geometry objects will be written
+for each and every floor in the building that are represented through
+multipliers and all resulting multipliers will be 1. Default: True</li>
+<li><strong>tolerance</strong> – The minimum distance in z values of floor_height and
+floor_to_ceiling_height at which adjacent Faces will be split.
+Default: 0.01, suitable for objects in meters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.duplicate">
+<code class="descname">duplicate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dragonfly.building.Building.duplicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of this object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.footprint">
+<code class="descname">footprint</code><span class="sig-paren">(</span><em>tolerance=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.footprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.footprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of Face3D objects representing the footprint of the building.</p>
+<p>The footprint is derived from the lowest story of the building and, if
+all Room2Ds of this story can be joined into a single continuous polyface,
+then only one Face3D will be contined in the list output from this method.
+Otherwise, several Face3Ds may be output.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tolerance</strong> – The minimum distance between points at which they are
+not considered touching. Default: 0.01, suitable for objects
+in meters.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="dragonfly.building.Building.from_all_story_geometry">
+<em class="property">classmethod </em><code class="descname">from_all_story_geometry</code><span class="sig-paren">(</span><em>identifier</em>, <em>all_story_geometry</em>, <em>floor_to_floor_heights</em>, <em>tolerance=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.from_all_story_geometry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.from_all_story_geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a Building from an array of Face3Ds arrays representing all floors.</p>
+<p>This method will test to see which of the stories are geometrically unique
+(accouting for both the floor plate geometry and the floor_to_floor_heights).
+It will only include the unique floor geometries in the resulting Building.</p>
+<p>All of the resulting Room2Ds will have a floor-to-ceiling height equal to the
+Story floor-to-floor height.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>identifier</strong> – Text string for a unique Building ID. Must be &lt; 100 characters
+and not contain any spaces or special characters.</li>
+<li><strong>all_story_geometry</strong> – An array of arrays with each sub-array possessing
+horizontal ladybug-geometry Face3Ds that representing the floor
+plates of the building. Together, these Face3Ds should represent
+all Stories of a building and each array of Face3Ds should together
+represent one Story.</li>
+<li><strong>floor_to_floor_heights</strong> – An array of float values with a length equal
+to the number of stories in the Building. Each value in the list
+represents the floor_to_floor height of the Story starting from
+the first floor and then moving to the top floor.</li>
+<li><strong>tolerance</strong> – The maximum difference between x, y, and z values at which
+point vertices are considered to be the same. This is also needed as
+a means to determine which floor geometries are equivalent to one
+another and should be a part the same Story. Default: 0.01, suitable
+for objects in meters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="dragonfly.building.Building.from_dict">
+<em class="property">classmethod </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>data</em>, <em>tolerance=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.from_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize an Building from a dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> – A dictionary representation of a Building object.</li>
+<li><strong>tolerance</strong> – The maximum difference between z values at which point vertices
+are considered to be in the same horizontal plane. This is used to check
+that all vertices of the input floor_geometry lie in the same horizontal
+floor plane. Default is 0, which will not perform any check.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="dragonfly.building.Building.from_footprint">
+<em class="property">classmethod </em><code class="descname">from_footprint</code><span class="sig-paren">(</span><em>identifier</em>, <em>footprint</em>, <em>floor_to_floor_heights</em>, <em>tolerance=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.from_footprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.from_footprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a Building from an array of Face3Ds representing a footprint.</p>
+<p>All of the resulting Room2Ds will have a floor-to-ceiling height equal to the
+Story floor-to-floor height. Also, none of the Room2Ds will have contact
+with the ground or top exposure but the separate_top_bottom_floors method
+can be used to automatically break these floors out from the multiplier
+representation and assign these proeprties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>identifier</strong> – Text string for a unique Building ID. Must be &lt; 100 characters
+and not contain any spaces or special characters.</li>
+<li><strong>footprint</strong> – An array of horizontal ladybug-geometry Face3Ds that together
+represent the the footprint of the Building.</li>
+<li><strong>floor_to_floor_heights</strong> – An array of float values with a length equal
+to the number of stories in the Building. Each value in the list
+represents the floor_to_floor height of the Story starting from
+the first floor and then moving to the top floor.</li>
+<li><strong>tolerance</strong> – The maximum difference between z values at which point vertices
+are considered to be in the same horizontal plane. This is used to check
+that all vertices of the input floor_geometry lie in the same horizontal
+floor plane. Default is 0, which will not perform any check.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.move">
+<code class="descname">move</code><span class="sig-paren">(</span><em>moving_vec</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.move"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move this Building along a vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>moving_vec</strong> – A ladybug_geometry Vector3D with the direction and distance
+to move the object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.reflect">
+<code class="descname">reflect</code><span class="sig-paren">(</span><em>plane</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.reflect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.reflect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reflect this Building across a plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plane</strong> – A ladybug_geometry Plane across which the object will be reflected.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.rotate_xy">
+<code class="descname">rotate_xy</code><span class="sig-paren">(</span><em>angle</em>, <em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.rotate_xy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.rotate_xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate this Building counterclockwise in the XY plane by a certain angle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>angle</strong> – An angle in degrees.</li>
+<li><strong>origin</strong> – A ladybug_geometry Point3D for the origin around which the
+object will be rotated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.scale">
+<code class="descname">scale</code><span class="sig-paren">(</span><em>factor</em>, <em>origin=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale this Building by a factor from an origin point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>factor</strong> – A number representing how much the object should be scaled.</li>
+<li><strong>origin</strong> – A ladybug_geometry Point3D representing the origin from which
+to scale. If None, it will be scaled from the World origin (0, 0, 0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.separate_top_bottom_floors">
+<code class="descname">separate_top_bottom_floors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.separate_top_bottom_floors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.separate_top_bottom_floors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate top/bottom Stories with non-unity multipliers into their own Stories.</p>
+<p>The resulting first and last Stories will each have a multiplier of 1 and
+duplicated middle Stories will be added as needed. This method also
+automatically assigns the first story Room2Ds to have a ground contact
+floor and the top story Room2Ds to have an outdoor-exposed roof.</p>
+<p>This is particularly helpful when using to_honeybee workflows with
+multipliers but one wants to account for the heat exchange of the top
+or bottom floors with the gound or outdoors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.set_outdoor_shading_parameters">
+<code class="descname">set_outdoor_shading_parameters</code><span class="sig-paren">(</span><em>shading_parameter</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.set_outdoor_shading_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.set_outdoor_shading_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set all of the outdoor walls to have the same shading parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.set_outdoor_window_parameters">
+<code class="descname">set_outdoor_window_parameters</code><span class="sig-paren">(</span><em>window_parameter</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.set_outdoor_window_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.set_outdoor_window_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set all of the outdoor walls to have the same window parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.shade_representation">
+<code class="descname">shade_representation</code><span class="sig-paren">(</span><em>tolerance=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.shade_representation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.shade_representation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of honeybee Shade objects representing the building geometry.</p>
+<p>These can be used to account for this Building’s shade in the simulation of
+another nearby Building.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tolerance</strong> – The minimum distance between points at which they are
+not considered touching. Default: 0.01, suitable for objects
+in meters.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><em>abridged=False</em>, <em>included_prop=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Building as a dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>abridged</strong> – Boolean to note whether the extension properties of the
+object (ie. construciton sets) should be included in detail
+(False) or just referenced by identifier (True). Default: False.</li>
+<li><strong>included_prop</strong> – List of properties to filter keys that must be included in
+output dictionary. For example [‘energy’] will include ‘energy’ key if
+available in properties to_dict. By default all the keys will be
+included. To exclude all the keys from extensions use an empty list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dragonfly.building.Building.to_honeybee">
+<code class="descname">to_honeybee</code><span class="sig-paren">(</span><em>use_multiplier=True</em>, <em>tolerance=0.01</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dragonfly/building.html#Building.to_honeybee"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dragonfly.building.Building.to_honeybee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert Dragonfly Building to a Honeybee Model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>use_multiplier</strong> – If True, the multipliers on this Building’s Stories will be
+passed along to the generated Honeybee Room objects, indicating the
+simulation will be run once for each unique room and then results
+will be multiplied. If False, full geometry objects will be written
+for each and every floor in the building that are represented through
+multipliers and all resulting multipliers will be 1. Default: True</li>
+<li><strong>tolerance</strong> – The minimum distance in z values of floor_height and
+floor_to_ceiling_height at which adjacent Faces will be split.
+Default: 0.01, suitable for objects in meters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.display_name">
+<code class="descname">display_name</code><a class="headerlink" href="#dragonfly.building.Building.display_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or set a string for the object name without any character restrictions.</p>
+<p>If not set, this will be equal to the identifier.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.exterior_aperture_area">
+<code class="descname">exterior_aperture_area</code><a class="headerlink" href="#dragonfly.building.Building.exterior_aperture_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a number for the total exterior aperture area in the Building.</p>
+<p>Note that this property uses the story multipliers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.exterior_wall_area">
+<code class="descname">exterior_wall_area</code><a class="headerlink" href="#dragonfly.building.Building.exterior_wall_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a number for the total exterior wall area in the Building.</p>
+<p>Note that this property uses the story multipliers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.floor_area">
+<code class="descname">floor_area</code><a class="headerlink" href="#dragonfly.building.Building.floor_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a number for the total floor area in the Building.</p>
+<p>Note that this property uses the story multipliers.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.height">
+<code class="descname">height</code><a class="headerlink" href="#dragonfly.building.Building.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a number for the height of the top ceiling of the Building.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.height_from_first_floor">
+<code class="descname">height_from_first_floor</code><a class="headerlink" href="#dragonfly.building.Building.height_from_first_floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a the height difference between the top ceiling and bottom floor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.identifier">
+<code class="descname">identifier</code><a class="headerlink" href="#dragonfly.building.Building.identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a text string for the unique object identifer.</p>
+<p>This identifier remains constant as the object is mutated, copied, and
+serialized to different formats (eg. dict, idf, rad). This property is also
+used to reference the object across a Model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.max">
+<code class="descname">max</code><a class="headerlink" href="#dragonfly.building.Building.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a Point2D for the max bounding rectangle vertex in the XY plane.</p>
+<p>This is useful in calculations to determine if this Building is in proximity
+to other objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.min">
+<code class="descname">min</code><a class="headerlink" href="#dragonfly.building.Building.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a Point2D for the min bounding rectangle vertex in the XY plane.</p>
+<p>This is useful in calculations to determine if this Building is in proximity
+to other objects.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.properties">
+<code class="descname">properties</code><a class="headerlink" href="#dragonfly.building.Building.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object properties, including Radiance, Energy and other properties.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.story_count">
+<code class="descname">story_count</code><a class="headerlink" href="#dragonfly.building.Building.story_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an integer for the number of stories in the building.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.unique_room_2ds">
+<code class="descname">unique_room_2ds</code><a class="headerlink" href="#dragonfly.building.Building.unique_room_2ds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of the unique Room2D objects that form the Building.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.unique_stories">
+<code class="descname">unique_stories</code><a class="headerlink" href="#dragonfly.building.Building.unique_stories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a tuple of only unique Story objects that form the Building.</p>
+<p>Repeated stories are represented only once but will have a non-unity multiplier.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.user_data">
+<code class="descname">user_data</code><a class="headerlink" href="#dragonfly.building.Building.user_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get or set an optional dictionary for additional meta data for this object.</p>
+<p>This will be None until it has been set. All keys and values of this
+dictionary should be of a standard Python type to ensure correct
+serialization of the object to/from JSON (eg. str, float, int, list dict)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dragonfly.building.Building.volume">
+<code class="descname">volume</code><a class="headerlink" href="#dragonfly.building.Building.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a number for the volume of all the Rooms in the Building.</p>
+<p>Note that this property uses the story multipliers.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
